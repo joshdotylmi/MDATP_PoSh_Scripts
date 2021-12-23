@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ASR_GUI_Radio"
         mc:Ignorable="d"
-        Title="ASR Rules PoSh GUI" Width="800" Height="580" MaxHeight="580" MaxWidth="800" MinHeight="580" MinWidth="800">
+        Title="ASR Rules PoSh GUI - Version 1.1 - 23rd Dec 2021" Width="900" Height="620" MaxHeight="620" MaxWidth="900" MinHeight="620" MinWidth="900">
     <StackPanel>
         <Menu  IsMainMenu="true">
             <MenuItem Header="_File">
@@ -29,16 +29,19 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Content="Block all Office applications from creating child processes"  Grid.Column="0" />
             <RadioButton x:Name="OAppChildProcD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="OAppChildProcA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="OAppChildProcB" Content="Enabled" VerticalAlignment="Center"  Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="OAppChildProcW" Content="Warn" VerticalAlignment="Center"  Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -47,10 +50,12 @@
             <RadioButton x:Name="ObfusScriptD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="ObfusScriptA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="ObfusScriptB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="ObfusScriptW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -59,10 +64,12 @@
             <RadioButton x:Name="MacroAPID" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="MacroAPIA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="MacroAPIB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="MacroAPIW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -71,10 +78,12 @@
             <RadioButton x:Name="OfficeCreateExeD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="OfficeCreateExeA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="OfficeCreateExeB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="OfficeCreateExeW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -83,10 +92,12 @@
             <RadioButton x:Name="OfficeCodeInjD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="OfficeCodeInjA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="OfficeCodeInjB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="OfficeCodeInjW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -95,10 +106,12 @@
             <RadioButton x:Name="ScriptDwnlExeD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="ScriptDwnlExeA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="ScriptDwnlExeB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="ScriptDwnlExeW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -107,10 +120,12 @@
             <RadioButton x:Name="MailExeD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="MailExeA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="MailExeB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="MailExeW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -119,10 +134,12 @@
             <RadioButton x:Name="FileCriteriaD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="FileCriteriaA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="FileCriteriaB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="FileCriteriaW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -131,10 +148,12 @@
             <RadioButton x:Name="RansomwareD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="RansomwareA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="RansomwareB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="RansomwareW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -143,10 +162,12 @@
             <RadioButton x:Name="lsassD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="lsassA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="lsassB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="lsassW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -155,10 +176,12 @@
             <RadioButton x:Name="prcCreateD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="prcCreateA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="prcCreateB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="prcCreateW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -167,10 +190,12 @@
             <RadioButton x:Name="USBD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="USBA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="USBB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="USBW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -179,10 +204,12 @@
             <RadioButton x:Name="OCommChildProcD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="OCommChildProcA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="OCommChildProcB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="OCommChildProcW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -191,10 +218,12 @@
             <RadioButton x:Name="PDFChildProcD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="PDFChildProcA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="PDFChildProcB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="PDFChildProcW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -203,10 +232,26 @@
             <RadioButton x:Name="WMIPersD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="WMIPersA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
             <RadioButton x:Name="WMIPersB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="WMIPersW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Block abuse of exploited vulnerable signed drivers" Grid.Column="0" />
+            <RadioButton x:Name="VulnDriversD" Content="Disabled" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="VulnDriversA" Content="Audit" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="VulnDriversB" Content="Enabled" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
+            <RadioButton x:Name="VulnDriversW" Content="Warn" VerticalAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" Panel.ZIndex="2" />
         </Grid>
         <Grid Height="40" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
@@ -215,15 +260,17 @@
             <Label x:Name="lblTotalDisabled" Content="0 Disabled" Grid.Column="1" VerticalAlignment="Center"/>
             <Label x:Name="lblTotalAudit" Content="0 Audit" Grid.Column="2" VerticalAlignment="Center"/>
             <Label x:Name="lblTotalEnabled" Content="0 Enabled" Grid.Column="3" VerticalAlignment="Center"/>
+            <Label x:Name="lblTotalWarn" Content="0 Warn" Grid.Column="4" VerticalAlignment="Center"/>
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnSave" Content="Save Changes" Grid.Column="2" Padding="1,3,1,3" Margin="10,10,10,10" ToolTip="This will set the new configuration based on the selection."/>
+            <Button x:Name="btnSave" Content="Save Changes" Grid.Column="3" Padding="1,3,1,3" Margin="10,10,10,10" ToolTip="This will set the new configuration based on the selection."/>
             <Button x:Name="btnReset" Content="Reset" Grid.Column="4" Margin="10,10,10,10" ToolTip="This will reset the selection to the current configuration."/>
         </Grid>
     </StackPanel>
@@ -254,15 +301,17 @@ function ASRReset {
     $RulesIdsArray += $RulesIds
 
     ##Uncheck RadioButtons
-    $RadioArray = "OAppChildProc", "ObfusScript", "MacroAPI", "OfficeCreateExe", "OfficeCodeInj", "ScriptDwnlExe", "MailExe", "FileCriteria", "Ransomware", "lsass", "prcCreate", "USB", "OCommChildProc", "PDFChildProc", "WMIPers"
+    $RadioArray = "OAppChildProc", "ObfusScript", "MacroAPI", "OfficeCreateExe", "OfficeCodeInj", "ScriptDwnlExe", "MailExe", "FileCriteria", "Ransomware", "lsass", "prcCreate", "USB", "OCommChildProc", "PDFChildProc", "WMIPers", "VulnDrivers"
     for ($i=0; $i -lt $RadioArray.Length; $i++){
         $RadioCheckA = $RadioArray[$i]+"A"
         $RadioCheckD = $RadioArray[$i]+"D"
         $RadioCheckB = $RadioArray[$i]+"B"
+        $RadioCheckW = $RadioArray[$i]+"W"
 
         $Form.FindName($RadioCheckA).isChecked = 0
         $Form.FindName($RadioCheckD).isChecked = 0
         $Form.FindName($RadioCheckB).isChecked = 0
+        $Form.FindName($RadioCheckW).isChecked = 0
     }
     
     ##Total Counter
@@ -270,16 +319,19 @@ function ASRReset {
     $TotalDisabled = 0
     $TotalAudit = 0
     $TotalEnabled = 0
+    $TotalWarn = 0
 
     ForEach ($i in $RulesActions){
         If ($RulesActions[$counter] -eq 0){$TotalDisabled++}
         ElseIf ($RulesActions[$counter] -eq 2){$TotalAudit++}
         ElseIf ($RulesActions[$counter] -eq 1){$TotalEnabled++}
+        ElseIf ($RulesActions[$counter] -eq 6){$TotalWarn++}
         $counter++
     }
     $Form.FindName("lblTotalDisabled").Content =  $TotalDisabled
     $Form.FindName("lblTotalAudit").Content = $TotalAudit
     $Form.FindName("lblTotalEnabled").Content = $TotalEnabled
+    $Form.FindName("lblTotalWarn").Content = $TotalWarn
 
     $counter = 0
 
@@ -300,10 +352,12 @@ function ASRReset {
         ElseIf ($RulesIdsArray[$counter] -eq "26190899-1602-49e8-8b27-eb1d0a1ce869"){$ASR = "OCommChildProc"}
         ElseIf ($RulesIdsArray[$counter] -eq "7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c"){$ASR = "PDFChildProc"}
         ElseIf ($RulesIdsArray[$counter] -eq "e6db77e5-3df2-4cf1-b95a-636979351e5b"){$ASR = "WMIPers"}
+        ElseIf ($RulesIdsArray[$counter] -eq "56a863a9-875e-4185-98a7-b882c64b5ce5"){$ASR = "VulnDrivers"}
         ## Checking the Action Mode/Radio Button
         If ($RulesActions[$counter] -eq 0){$Radio = $ASR+"D" }
         ElseIf ($RulesActions[$counter] -eq 1){ $Radio = $ASR+"B"}
         ElseIf ($RulesActions[$counter] -eq 2){$Radio = $ASR+"A"}
+        ElseIf ($RulesActions[$counter] -eq 6){$Radio = $ASR+"W"}
         $Form.FindName($Radio).isChecked = 1
         $counter++        
     }
@@ -330,20 +384,22 @@ $btnSave.Add_Click({
 
     #Write-Host ====================================== Set ASR Rules ======================================
     #Write-Host 
-    $RadioArray = "OAppChildProc", "ObfusScript", "MacroAPI", "OfficeCreateExe", "OfficeCodeInj", "ScriptDwnlExe", "MailExe", "FileCriteria", "Ransomware", "lsass", "prcCreate", "USB", "OCommChildProc", "PDFChildProc", "WMIPers"
-    $ASRGUIDArray = "D4F940AB-401B-4EFC-AADC-AD5F3C50688A", "5BEB7EFE-FD9A-4556-801D-275E5FFC04CC", "92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B", "3B576869-A4EC-4529-8536-B80A7769E899", "75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84", "D3E037E1-3EB8-44C8-A917-57927947596D", "BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550", "01443614-cd74-433a-b99e-2ecdc07bfc25", "c1db55ab-c21a-4637-bb3f-a12568109d35", "9e6c4e1f-7d60-472f-ba1a-a39ef669e4b2", "d1e49aac-8f56-4280-b9ba-993a6d77406c", "b2b3f03d-6a65-4f7b-a9c7-1c7ef74a9ba4", "26190899-1602-49e8-8b27-eb1d0a1ce869", "7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c", "e6db77e5-3df2-4cf1-b95a-636979351e5b"
+    $RadioArray = "OAppChildProc", "ObfusScript", "MacroAPI", "OfficeCreateExe", "OfficeCodeInj", "ScriptDwnlExe", "MailExe", "FileCriteria", "Ransomware", "lsass", "prcCreate", "USB", "OCommChildProc", "PDFChildProc", "WMIPers", "VulnDrivers"
+    $ASRGUIDArray = "D4F940AB-401B-4EFC-AADC-AD5F3C50688A", "5BEB7EFE-FD9A-4556-801D-275E5FFC04CC", "92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B", "3B576869-A4EC-4529-8536-B80A7769E899", "75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84", "D3E037E1-3EB8-44C8-A917-57927947596D", "BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550", "01443614-cd74-433a-b99e-2ecdc07bfc25", "c1db55ab-c21a-4637-bb3f-a12568109d35", "9e6c4e1f-7d60-472f-ba1a-a39ef669e4b2", "d1e49aac-8f56-4280-b9ba-993a6d77406c", "b2b3f03d-6a65-4f7b-a9c7-1c7ef74a9ba4", "26190899-1602-49e8-8b27-eb1d0a1ce869", "7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c", "e6db77e5-3df2-4cf1-b95a-636979351e5b", "56a863a9-875e-4185-98a7-b882c64b5ce5"
     $ASRGUIDString = ""
     
     for ($i=0; $i -lt $RadioArray.Length; $i++){
         $RadioCheckA = $RadioArray[$i]+"A"
         $RadioCheckD = $RadioArray[$i]+"D"
         $RadioCheckB = $RadioArray[$i]+"B"
+        $RadioCheckW = $RadioArray[$i]+"W"
         $ASRGUID = $ASRGUIDArray[$i]
         $RadioEmpty = 0
         
         If ($Form.FindName($RadioCheckA).isChecked -eq 1){$ASRAction = "AuditMode"}
         ElseIf ($Form.FindName($RadioCheckB).isChecked -eq 1){$ASRAction = "Enabled"}
         ElseIf ($Form.FindName($RadioCheckD).isChecked -eq 1){$ASRAction = "Disabled"}
+        ElseIf ($Form.FindName($RadioCheckW).isChecked -eq 1){$ASRAction = "Warn"}
         Else{$RadioEmpty = 1}
         
         If ($RadioEmpty -eq 0){
@@ -408,12 +464,12 @@ $btnClear.Add_Click({
 
 $btnDocs = $Form.FindName("btnDocs")
 $btnDocs.Add_Click({
-    start ‘https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction’
+    start ‘https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/enable-attack-surface-reduction’
 })
 
 $btnInfo = $Form.FindName("btnInfo")
 $btnInfo.Add_Click({
-    [System.Windows.Forms.MessageBox]::Show("Version 1.0 - 18th May 2020$([System.Environment]::NewLine)Created by Hermann Maurer $([System.Environment]::NewLine)Inspired by Antonio Vasconcelos","Info")
+    start ‘https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/demystifying-attack-surface-reduction-rules-part-3/ba-p/1360968’
 })
 
 
@@ -429,6 +485,7 @@ $btnReport.Add_Click({
     $TotalDisabled = 0
     $TotalAudit = 0
     $TotalBlock = 0
+    $TotalWarn = 0
     $timeStamp = Get-Date -Format FileDateTime
     $ReportName = "ASR Rules Report " + $timeStamp
 
@@ -438,6 +495,7 @@ $btnReport.Add_Click({
         If ($RulesActions[$counter] -eq 0){$TotalDisabled++}
         ElseIf ($RulesActions[$counter] -eq 1){$TotalBlock++}
         ElseIf ($RulesActions[$counter] -eq 2){$TotalAudit++}
+        ElseIf ($RulesActions[$counter] -eq 6){$TotalWarn++}
         $counter++
     }
  
@@ -446,7 +504,7 @@ $btnReport.Add_Click({
     Add-Content -Path .\$ReportName.txt -value (Get-Date)
     Add-Content -Path .\$ReportName.txt -value ("Hostname: " + $env:COMPUTERNAME)
     Add-Content -Path .\$ReportName.txt -value ("=> " + ($RulesIds).Count + " Attack Surface Reduction rules configured")
-    Add-Content -Path .\$ReportName.txt -value ("=> "+$TotalDisabled + " in Disabled Mode ** " + $TotalAudit + " in Audit Mode ** " + $TotalBlock + " in Block Mode")
+    Add-Content -Path .\$ReportName.txt -value ("=> "+$TotalDisabled + " in Disabled Mode ** " + $TotalAudit + " in Audit Mode ** " + $TotalBlock + " in Block Mode **" + $TotalWarn + " in Warn Mode")
 
     Add-Content -Path .\$ReportName.txt "" 
     Add-Content -Path .\$ReportName.txt "====================================== ASR Rules ======================================"
@@ -470,10 +528,12 @@ $btnReport.Add_Click({
         ElseIf ($RulesIdsArray[$counter] -eq "26190899-1602-49e8-8b27-eb1d0a1ce869"){$RuleName = "Block Office communication applications from creating child processes"}
         ElseIf ($RulesIdsArray[$counter] -eq "7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c"){$RuleName = "Block Adobe Reader from creating child processes"}
         ElseIf ($RulesIdsArray[$counter] -eq "e6db77e5-3df2-4cf1-b95a-636979351e5b"){$RuleName = "Block persistence through WMI event subscription"}
+        ElseIf ($RulesIdsArray[$counter] -eq "56a863a9-875e-4185-98a7-b882c64b5ce5"){$RuleName = "Block abuse of exploited vulnerable signed drivers"}
         ## Check the Action type
         If ($RulesActions[$counter] -eq 0){$RuleAction = "Disabled"}
         ElseIf ($RulesActions[$counter] -eq 1){$RuleAction = "Block   "}
         ElseIf ($RulesActions[$counter] -eq 2){$RuleAction = "Audit   "}
+        ElseIf ($RulesActions[$counter] -eq 6){$RuleAction = "Warn   "}
         ## Output Rule Id, Name and Action
         Add-Content -Path .\$ReportName.txt -value ("=> " + $RulesIdsArray[$counter]+ "`t`t" + "Action: " + $RuleAction + "`t" + $RuleName )
         $counter++
