@@ -8,7 +8,16 @@ Download the Powershell Script or Exe File from here and run it: https://github.
 
 ### Prerequisites
 
-1. You will need Windows 10 Pro or Windows 10 Enterprise in Version 1709 or later.
+1. You can set attack surface reduction rules for devices that are running any of the following editions and versions of Windows:
+
+   * Windows 10 Pro, version 1709 or later
+   * Windows 10 Enterprise, version 1709 or later
+   * Windows Server, version 1803 (Semi-Annual Channel) or later
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2022
+
 
 2. The Powershell Script as well as the Exe have to run in admin mode to work properly.
 
@@ -37,7 +46,7 @@ There is no installation as the EXE is based on the Powershell Script.
 
 ## Authors
 
-* Hermann Maurer - *Initial work*
+* Hermann Maurer
 
 ## Acknowledgments
 Thanks to
