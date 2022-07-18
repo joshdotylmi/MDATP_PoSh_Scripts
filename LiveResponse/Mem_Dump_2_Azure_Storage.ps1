@@ -31,7 +31,21 @@
 ## - Fixed Metered Connection check.
 ## - Added Azure Storage required parameters
 ## - Added check for elevated rights.
+##
+## 16/03/2021 - V8
+## - Now for realz, fixing metered connection check.
+##
+## 16/03/2021 - V9
+## - New version of WinPMem (fixes VSM issues)
+## - Changed code to get latest release from new GitHub repo and check for download_url instead of tag
 
+## !!! Instructions !!!! ###
+## https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview
+## Create a Blob storage
+## Create a Container
+## Create a SAS token with Blob + Container + Write rights only
+## Use the Blob sotrage name
+## Do NOT change the variables for Azure URI or params directly! The script will prompt you to add the needed info!
 
 # Custom format for logging messages
 function Write-Status($text) {
@@ -67,7 +81,7 @@ function Write-Sub-Warning($text) {
 ## Global variables ##
 
 # Dynamic DMP filename, based on Hostname and Date and Time
-$filename = "$($env:COMPUTERNAME)_$(get-date -Format yyyymmdd_hhmm).dmp"
+$filename = "$($env:COMPUTERNAME)_$(get-date -Format yyyymmdd_hhmm).raw"
 
 # Set Working directory to C:\Windows\Temp
 Set-Location -Path C:\Windows\Temp
@@ -103,10 +117,10 @@ Function AzureInfo {
         AzureInfo
     }
     else{
-        #continue
+        # Azure Blob Storage Dynamic URI
+        $AzureURI = "https://"+$AzStorageName+".blob.core.windows.net/"+$AzContainerName+"?" + $AzSAStoken # DO NOT TOUCH THIS LINE
+        return $AzureURI
     }
-    # Azure Blob Storage Dynamic URI
-    $AzureURI = "https://"+$AzStorageName+".blob.core.windows.net/"+$AzContainerName+"?" + $AzSAStoken # DO NOT TOUCH THIS LINE
     } #end function
 }
 
@@ -120,22 +134,10 @@ if ((New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Pr
     return
     }
 
-# Check if Azure URI required info is present
+# Get required Azure URI info
 Write-Status "Please input required Azure Storage information..."
-AzureInfo
+$AzureURI = AzureInfo
 
-# Check if Connection is Metered
-Write-Status "Checking for Metered Connection..."
-[void][Windows.Networking.Connectivity.NetworkInformation, Windows, ContentType = WindowsRuntime]
-$connection = [Windows.Networking.Connectivity.NetworkInformation]::GetInternetConnectionProfile().GetConnectionCost()
-
-if ($Connection.ApproachingDataLimit -eq "True" -or $connection.OverDataLimit -eq "True" -or $connection.Roaming -eq "True" -or $connection.BackgroundDataUsageRestricted -eq "True" -or $connection.NetworkCostType -ne "Unrestricted") {
-    Write-Sub-Warning ("Connection is Metered. Dump will NOT be uploaded.")
-    }
-else {
-    Write-Sub-Status "Connection is not Metered. Dump will be uploaded to Azure."
-    }
-    
 # Check if required disk space is available
 Write-Status "Checking for Available Disk Space..."
 $Memsize=(Get-WmiObject win32_physicalmemory).capacity -as [long]
@@ -149,25 +151,25 @@ if ($Diskfree -le $Memsize * $DiskOverhead) {
 # Get Winpmem binaries
 Write-Status "Downloading Memory dumping tool..."
 
-$repo = "Velocidex/c-aff4"
-$file = "winpmem_"
+$repo = "Velocidex/WinPmem"
+$filenamePattern = "*x64*.exe"
 $releases = "https://api.github.com/repos/$repo/releases"
 
-Write-Status "Determining latest release"
-$tag = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].tag_name
-$download = "https://github.com/$repo/releases/download/$tag/$file$tag.exe"
+$releasesUri = "https://api.github.com/repos/$repo/releases/latest"
+$downloadUri = ((Invoke-RestMethod -Method GET -Uri $releasesUri).assets | Where-Object name -like $filenamePattern ).browser_download_url
 
-Invoke-WebRequest $download -OutFile winpmem.exe
+Invoke-WebRequest $downloadUri -OutFile winpmem.exe
+
 # Dump Device Memory
 # Please note that this will fail in virtual machines that use dynamic memory
 
-if ($SplitDump == False) {
+if ($SplitDump -eq $False) {
     Write-Status "Dumping memory..."
-    .\winpmem.exe -o "C:\Windows\Temp\$filename" -c zlib
+    .\winpmem.exe "C:\Windows\Temp\$filename"
 }
 else {
     Write-Status "Dumping memory in $SplitChunkSize byte chunks"
-    .\winpmem.exe -o "C:\Windows\Temp\$filename" --split $SplitChunkSize -c zlib
+    .\winpmem.exe "C:\Windows\Temp\$filename" --split $SplitChunkSize
 }
 
 # Install AzCopy into remote device
@@ -181,14 +183,20 @@ Expand-Archive ./AzCopy.zip ./AzCopy -Force
 # Set Working directory to C:\Windows\Temp\AzCopy dir
 Set-Location -Path C:\Windows\Temp\AzCopy\azcopy_windows_amd64*
 
+# Check if Connection is Metered
+Write-Status "Checking for Metered Connection..."
+[void][Windows.Networking.Connectivity.NetworkInformation, Windows, ContentType = WindowsRuntime]
+$connection = [Windows.Networking.Connectivity.NetworkInformation]::GetInternetConnectionProfile().GetConnectionCost()
+
 # Copy generated dump into Azure Storage using a limited SAS
-if ($isMetered -eq $False) {
-    Write-Sub-Status "Copying memory dump to your Azure Storage container " $AzContainerName
-    .\azcopy.exe copy "C:\Windows\Temp\$filename*" $AzureURI 2>&1 
-    }
-else {
+if ($Connection.ApproachingDataLimit -eq "True" -or $connection.OverDataLimit -eq "True" -or $connection.Roaming -eq "True" -or $connection.BackgroundDataUsageRestricted -eq "True" -or $connection.NetworkCostType -ne "Unrestricted") {
     Write-Status "Dump was successfully created but NOT uploaded. Metered connection detected."
     Write-Status "Dump is located at C:\Windows\Temp\$filename"
+    }
+else {
+    Write-Sub-Status "Connection is not Metered. Dump will be uploaded to Azure."
+    Write-Sub-Status "Copying memory dump to your Azure Storage container " $AzContainerName
+    .\azcopy.exe copy "C:\Windows\Temp\$filename*" "$AzureURI" --check-length=false 2>&1 
     }
     
 write-status "Execution Completed! Exiting."
